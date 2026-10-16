@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRUS-STD-60084 v2.0-U &mdash; Measurement and Reporting of Resource Consumption by Large Computational Loads (Uniform Edition)</title>
+<meta name="description" content="GRUS-STD-60084 v2.0-U, Uniform Edition. A jurisdiction-neutral measurement standard for the electrical and water consumption of large computational loads. Public domain under CC0 1.0.">
+<meta name="author" content="Green Recursive Utility Service LLC">
+<link rel="canonical" href="https://doi.org/10.5281/zenodo.23246001">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GRUS-STD-60084 v2.0-U — Uniform Edition">
+<meta property="og:description" content="A jurisdiction-neutral measurement standard for the electrical and water consumption of large computational loads. Public domain under CC0 1.0.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":["CreativeWork","DefinedTermSet"],
+"@id":"https://doi.org/10.5281/zenodo.23246001",
+"name":"GRUS-STD-60084 v2.0-U - Measurement and Reporting of Resource Consumption by Large Computational Loads (Uniform Edition)",
+"alternateName":"GRUS-STD-60084","version":"2.0-U","inLanguage":"en",
+"identifier":[{"@type":"PropertyValue","propertyID":"DOI","value":"10.5281/zenodo.23246001"},
+{"@type":"PropertyValue","propertyID":"Standard designation","value":"GRUS-STD-60084"}],
+"license":"https://creativecommons.org/publicdomain/zero/1.0/",
+"isBasedOn":"https://doi.org/10.5281/zenodo.23072905",
+"creator":{"@type":"Organization","@id":"https://isni.org/isni/0000000530334084",
+"name":"Green Recursive Utility Service LLC","alternateName":"GRUS",
+"identifier":[{"@type":"PropertyValue","propertyID":"ISNI","value":"0000 0005 3033 4084"},
+{"@type":"PropertyValue","propertyID":"SAM UEI","value":"JGT4J9QKGCQ3"},
+{"@type":"PropertyValue","propertyID":"Texas SOS","value":"806584578"}],
+"sameAs":["https://isni.org/isni/0000000530334084"]},
+"publisher":{"@id":"https://isni.org/isni/0000000530334084"}}
+</script>
+<style>
+:root{
+  --ink:#14181c; --mut:#55606a; --rule:#d3cfc8; --bg:#faf9f7; --card:#ffffff;
+  --acc:#2f6690; --code:#f1efec; --box:#f6f5f3; --max:52rem;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#e9e6e0; --mut:#9aa3ab; --rule:#333b42; --bg:#14181c; --card:#191e23;
+    --acc:#7fa8c9; --code:#1e242a; --box:#1c2228;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e9e6e0; --mut:#9aa3ab; --rule:#333b42; --bg:#14181c; --card:#191e23;
+  --acc:#7fa8c9; --code:#1e242a; --box:#1c2228;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);overflow-wrap:break-word;
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",Times,serif;
+  font-size:17px;line-height:1.62;-webkit-text-size-adjust:100%}
+.wrap{max-width:84rem;margin:0 auto;padding:0 16px;display:flex;flex-direction:column}
+@media(max-width:1099px){#toc{order:2}main{order:1}}
+@media(min-width:1100px){.wrap{display:grid;grid-template-columns:17rem minmax(0,var(--max));justify-content:center;gap:3rem}}
+
+/* masthead */
+.mast{border-bottom:2px solid var(--ink);padding:26px 0 14px;margin-bottom:8px}
+.mast .num{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-weight:700;
+  font-size:1.05rem;letter-spacing:.06em;margin:0 0 4px}
+.mast .ed{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.76rem;letter-spacing:.09em;
+  color:var(--mut);margin:0 0 10px;text-transform:uppercase}
+.mast .doi a{color:var(--acc);text-decoration:none;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem}
+.mast .doi a:hover{text-decoration:underline}
+
+/* contents */
+#toc{font-size:.84rem;line-height:1.45}
+#toc .toch{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--mut);margin:0 0 8px}
+#toc ol{list-style:none;margin:0;padding:0}
+#toc li{margin:0 0 3px}
+#toc a{color:var(--mut);text-decoration:none;display:block;padding:2px 6px;border-left:2px solid transparent}
+#toc a:hover{color:var(--ink);border-left-color:var(--acc);background:var(--box)}
+#toc .t3 a{padding-left:18px;font-size:.95em}
+@media(min-width:1100px){#toc{position:sticky;top:18px;max-height:calc(100vh - 36px);overflow:auto;
+  padding:18px 0 40px;border-right:1px solid var(--rule)}}
+@media(max-width:1099px){#toc{border:1px solid var(--rule);background:var(--card);border-radius:6px;
+  padding:14px;margin:16px 0 26px;max-height:19rem;overflow:auto}}
+
+/* body */
+main{padding:10px 0 80px;min-width:0}
+h1{font-size:1.85rem;line-height:1.2;margin:.2em 0 .5em;font-weight:700}
+h2{font-size:1.3rem;margin:2.3em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--ink);scroll-margin-top:16px}
+h3{font-size:1.08rem;margin:1.9em 0 .45em;scroll-margin-top:16px}
+h4{font-size:.98rem;margin:1.5em 0 .35em;scroll-margin-top:16px}
+p{margin:0 0 .85em}
+ul,ol{margin:0 0 .9em;padding-left:1.4em}
+li{margin-bottom:.35em}
+a{color:var(--acc)}
+.pl{opacity:0;margin-left:.4em;font-size:.72em;text-decoration:none;color:var(--acc)}
+h2:hover .pl,h3:hover .pl,h4:hover .pl{opacity:.7}
+a.ref{text-decoration:none;border-bottom:1px solid var(--acc)}
+
+/* devices from the print edition */
+.ctr{text-align:center}
+.std{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;letter-spacing:.06em}
+.m{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em}
+.sub{font-style:italic}
+.meta{font-size:.9rem;color:var(--mut)}
+.note{font-size:.88rem;color:var(--mut)}
+hr.top{height:2px;background:var(--ink);border:0;margin:1.4em 0}
+.calc{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;line-height:1.5;
+  background:var(--code);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;
+  margin:1em 0;white-space:pre;overflow-x:auto}
+.box{border:1.5px solid var(--ink);background:var(--box);border-radius:4px;padding:14px 16px;margin:1.2em 0}
+.box p:last-child{margin-bottom:0}
+.i2{margin-left:1.2em}
+.r{text-align:right}
+.c{text-align:center}
+
+/* jurisdictional entry device */
+.je{white-space:nowrap}
+.jn{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;font-size:.72rem;
+  background:var(--ink);color:var(--bg);padding:1px 5px;border-radius:2px;letter-spacing:.03em}
+.jt{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;background:var(--rule);
+  color:var(--ink);border:1px solid var(--ink);border-left:0;padding:1px 5px;font-weight:700}
+.jr,.jrs,.jrl{display:inline-block;border-bottom:1px solid var(--ink);height:.85em;vertical-align:bottom}
+.jr{min-width:7rem}.jrs{min-width:3.6rem}.jrl{min-width:13rem}
+.jd{font-size:.86em;font-style:italic;color:var(--mut)}
+
+/* phones and small tablets: the entry device wraps instead of running off the page */
+@media(max-width:760px){
+  .je{white-space:normal;display:inline-block;max-width:100%}
+  .jr,.jrs,.jrl{display:block;min-width:0!important;width:100%;max-width:20rem;height:1.05em;margin:3px 0 2px}
+  .jn,.jt{display:inline-block;white-space:nowrap}
+  .calc{font-size:.76rem}
+  body{font-size:16.5px}
+  h1{font-size:1.5rem}h2{font-size:1.18rem}h3{font-size:1.03rem}
+}
+/* never let a long token drag the page sideways */
+a,code,.m,.std{overflow-wrap:anywhere}
+img,svg{max-width:100%;height:auto}
+
+/* tables */
+.tw{overflow-x:auto;margin:1em 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.86rem;line-height:1.45;min-width:34rem}
+th,td{border:1px solid var(--rule);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--box);font-weight:700}
+table.sched td:first-child{white-space:nowrap}
+
+/* footer */
+.foot{border-top:1px solid var(--rule);margin-top:3rem;padding:18px 0 60px;font-size:.84rem;color:var(--mut)}
+.foot a{color:var(--acc)}
+
+/* print: fall back to the printed edition's look */
+@media print{
+  :root{--ink:#000;--bg:#fff;--mut:#333;--rule:#777;--box:#f4f4f4;--code:#f4f4f4;--acc:#000}
+  body{font-family:"Times New Roman",Times,serif;font-size:10.6pt;line-height:1.42}
+  #toc,.pl,.themebtn{display:none!important}
+  .wrap{display:block;max-width:none;padding:0}
+  h2{page-break-after:avoid}.box,.calc,table{page-break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}
+.themebtn{position:fixed;right:14px;bottom:14px;z-index:20;background:var(--card);color:var(--mut);
+  border:1px solid var(--rule);border-radius:999px;padding:7px 13px;font:600 .72rem/1 ui-monospace,Menlo,monospace;
+  letter-spacing:.08em;cursor:pointer}
+.themebtn:hover{color:var(--ink);border-color:var(--acc)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav id="toc" aria-label="Contents"><p class="toch">Contents</p><ol><li class="t2"><a href="#document-control">Document Control</a></li><li class="t2"><a href="#how-to-read-this-standard">How to Read This Standard</a></li><li class="t2"><a href="#schedule-of-jurisdictional-entries">Schedule of Jurisdictional Entries</a></li><li class="t3"><a href="#group-a-the-adopting-authority-and-the-instrument">Group A — The adopting authority and the instrument</a></li><li class="t3"><a href="#group-b-water-system-authority-and-the-integrity-floors">Group B — Water system authority and the integrity floors</a></li><li class="t3"><a href="#group-c-the-verifier-land-use-and-counsel">Group C — The verifier, land use, and counsel</a></li><li class="t2"><a href="#part-i-purpose-and-statutory-frame">Part I — Purpose and Statutory Frame</a></li><li class="t3"><a href="#1-1-what-is-already-before-the-adopting-authority">1.1 What is already before the adopting authority</a></li><li class="t3"><a href="#1-2-the-codified-authority-and-obligation">1.2 The codified authority and obligation</a></li><li class="t3"><a href="#1-3-the-four-specifications-the-framework-does-not-yet-contain">1.3 The four specifications the framework does not yet contain</a></li><li class="t3"><a href="#1-4-what-this-standard-does-not-do">1.4 What this standard does not do</a></li><li class="t2"><a href="#part-ii-why-self-reporting-is-insufficient-as-a-matter-of-record-and-why">Part II — Why Self-Reporting Is Insufficient as a Matter of Record,and Why Third-Party Verification Is Required</a></li><li class="t3"><a href="#2-1-self-reporting-has-already-failed-in-this-exact-context-on-the-recor">2.1 Self-reporting has already failed in this exact context, on the record</a></li><li class="t3"><a href="#2-2-no-other-regulated-connection-to-shared-public-infrastructure-is-cer">2.2 No other regulated connection to shared public infrastructure is certified by the connecting party&#x27;s own word</a></li><li class="t3"><a href="#2-3-the-requirement-stated">2.3 The requirement stated</a></li><li class="t3"><a href="#2-4-the-cost-of-the-alternative">2.4 The cost of the alternative</a></li><li class="t2"><a href="#part-iii-the-independence-of-judgment-standard-already-in-force">Part III — The Independence-of-Judgment Standard Already in Force</a></li><li class="t3"><a href="#3-1-the-standard-that-governs-who-may-verify-a-measurement-already-exist">3.1 The standard that governs who may verify a measurement already exists</a></li><li class="t3"><a href="#3-2-a-self-report-cannot-meet-that-standard">3.2 A self-report cannot meet that standard</a></li><li class="t3"><a href="#3-3-the-approval-criteria-are-also-already-written">3.3 The approval criteria are also already written</a></li><li class="t3"><a href="#3-4-this-is-not-a-new-or-special-rule-for-data-centers">3.4 This is not a new or special rule for data centers</a></li><li class="t2"><a href="#part-iv-the-classification-framework-engineering-basis">Part IV — The Classification Framework: Engineering Basis</a></li><li class="t3"><a href="#iv-a-hardware-sourcing-and-device-level-reference-draw">IV.A Hardware Sourcing and Device-Level Reference Draw</a></li><li class="t3"><a href="#iv-b-density-classes-cooling-regimes-and-the-physical-air-cooling-limit">IV.B Density Classes, Cooling Regimes, and the Physical Air-Cooling Limit</a></li><li class="t3"><a href="#iv-c-the-deterministic-heat-and-water-chain">IV.C The Deterministic Heat-and-Water Chain</a></li><li class="t3"><a href="#iv-d-axis-1-workload-profile-classification-classes-w-1-w-2-w-3">IV.D Axis 1 — Workload Profile Classification (Classes W-1, W-2, W-3)</a></li><li class="t3"><a href="#iv-e-axis-2-cooling-method-classification-classes-c-1-through-c-5">IV.E Axis 2 — Cooling Method Classification (Classes C-1 through C-5)</a></li><li class="t3"><a href="#iv-f-the-two-axis-matrix">IV.F The Two-Axis Matrix</a></li><li class="t3"><a href="#iv-g-workload-separation-uniformity-as-the-decisive-property">IV.G Workload Separation: Uniformity as the Decisive Property</a></li><li class="t2"><a href="#part-v-proposed-rule-text-with-basis">Part V — Proposed Rule Text, with Basis</a></li><li class="t2"><a href="#part-vi-why-these-belong-inside-the-measurement">Part VI — Why These Belong Inside the Measurement</a></li><li class="t3"><a href="#6-1-each-subsection-specifies-the-measurement-itself">6.1 Each subsection specifies the measurement itself</a></li><li class="t3"><a href="#6-2-the-burden-is-minimal-and-the-method-is-ordinary">6.2 The burden is minimal and the method is ordinary</a></li><li class="t3"><a href="#6-3-what-the-whole-converts">6.3 What the whole converts</a></li><li class="t3"><a href="#6-4-why-one-standard-and-why-the-same-one">6.4 Why one standard, and why the same one</a></li><li class="t2"><a href="#part-vii-request">Part VII — Request</a></li><li class="t2"><a href="#normative-and-statutory-references">Normative and Statutory References</a></li><li class="t3"><a href="#normative-references-fixed-and-not-jurisdictional-entries">Normative references — fixed, and not jurisdictional entries</a></li><li class="t3"><a href="#statutory-references-supplied-by-the-adopting-jurisdiction">Statutory references — supplied by the adopting jurisdiction</a></li><li class="t2"><a href="#technical-annexes-and-exhibits">Technical Annexes and Exhibits</a></li><li class="t2"><a href="#annex-a-master-two-axis-classification-matrix-and-measurement-obligation">Annex A — Master Two-Axis Classification Matrix and Measurement Obligation</a></li><li class="t3"><a href="#a-1-classification-summary">A.1 Classification Summary</a></li><li class="t3"><a href="#a-2-measurement-obligation-by-class-pair">A.2 Measurement Obligation by Class Pair</a></li><li class="t3"><a href="#a-3-structure-of-the-standard">A.3 Structure of the Standard</a></li><li class="t2"><a href="#annex-b-psychrometric-and-ambient-stress-matrix">Annex B — Psychrometric and Ambient Stress Matrix</a></li><li class="t3"><a href="#b-2-thermodynamic-heat-and-water-performance-analysis">B.2 Thermodynamic Heat and Water Performance Analysis</a></li><li class="t2"><a href="#annex-c-heat-transfer-boundary-specifications-modes-1-through-5">Annex C — Heat-Transfer Boundary Specifications, Modes 1 through 5</a></li><li class="t3"><a href="#mode-1-class-c-1-dry-air-cooled-crac-crah-and-dry-cooler-loop">Mode 1 — Class C-1 (Dry Air-Cooled: CRAC / CRAH and Dry Cooler Loop)</a></li><li class="t3"><a href="#mode-2-class-c-2-closed-loop-direct-liquid-cooling-cold-plate-to-dry-coo">Mode 2 — Class C-2 (Closed-Loop Direct Liquid Cooling: Cold Plate to Dry Cooler)</a></li><li class="t3"><a href="#mode-3-class-c-3-open-or-closed-circuit-evaporative-cooling-towers">Mode 3 — Class C-3 (Open or Closed-Circuit Evaporative Cooling Towers)</a></li><li class="t3"><a href="#mode-4-class-c-4-hybrid-evaporative-assisted-misting-and-adiabatic-spray">Mode 4 — Class C-4 (Hybrid: Evaporative-Assisted Misting and Adiabatic Spray)</a></li><li class="t3"><a href="#mode-5-class-c-5-on-site-power-generation-evaporative-cooling">Mode 5 — Class C-5 (On-Site Power Generation Evaporative Cooling)</a></li><li class="t3"><a href="#c-6-core-forensic-rules-for-heat-transfer-boundary-audits">C.6 Core Forensic Rules for Heat-Transfer Boundary Audits</a></li><li class="t2"><a href="#annex-d-facility-performance-and-classification-matrix-by-weather-case">Annex D — Facility Performance and Classification Matrix by Weather Case</a></li><li class="t3"><a href="#d-1-key-operational-findings">D.1 Key Operational Findings</a></li><li class="t2"><a href="#annex-e-water-source-utility-capacity-pressure-and-incident-audit-protoc">Annex E — Water Source, Utility Capacity, Pressure, and Incident Audit Protocol</a></li><li class="t3"><a href="#e-1-legal-water-source-audit">E.1 — Legal Water Source Audit</a></li><li class="t3"><a href="#e-2-utility-capacity-audit">E.2 — Utility Capacity Audit</a></li><li class="t3"><a href="#e-3-pressure-analysis-protocol">E.3 — Pressure Analysis Protocol</a></li><li class="t3"><a href="#e-4-service-interruption-and-incident-investigation-protocol">E.4 — Service Interruption and Incident Investigation Protocol</a></li><li class="t2"><a href="#annex-f-statutory-and-regulatory-reconciliation">Annex F — Statutory and Regulatory Reconciliation</a></li><li class="t3"><a href="#f-1-the-ten-point-legal-record-structure">F.1 The Ten-Point Legal Record Structure</a></li><li class="t3"><a href="#f-2-reconciliation-inventory">F.2 Reconciliation Inventory</a></li><li class="t3"><a href="#f-3-master-legal-and-regulatory-matrix">F.3 Master Legal and Regulatory Matrix</a></li><li class="t3"><a href="#f-4-rule-suite-statutory-and-technical-mapping">F.4 Rule Suite — Statutory and Technical Mapping</a></li><li class="t3"><a href="#f-5-statutory-takeaways">F.5 Statutory Takeaways</a></li><li class="t2"><a href="#annex-g-regional-aggregation-and-cumulative-strain">Annex G — Regional Aggregation and Cumulative Strain</a></li><li class="t3"><a href="#g-1-the-thirteen-regional-aggregation-dimensions">G.1 The Thirteen Regional Aggregation Dimensions</a></li><li class="t3"><a href="#g-2-regional-demand-and-infrastructure-margin-metrics">G.2 Regional Demand and Infrastructure Margin Metrics</a></li><li class="t2"><a href="#annex-h-project-completeness-matrix">Annex H — Project Completeness Matrix</a></li><li class="t2"><a href="#annex-i-engineering-computation-basis-and-derivations">Annex I — Engineering Computation Basis and Derivations</a></li><li class="t3"><a href="#i-1-electrical-and-thermal-identities">I.1 Electrical and Thermal Identities</a></li><li class="t3"><a href="#i-2-psychrometric-formulation-basis-of-annex-b">I.2 Psychrometric Formulation (Basis of Annex B)</a></li><li class="t3"><a href="#i-3-water-derivations">I.3 Water Derivations</a></li><li class="t3"><a href="#i-4-reference-panel-arithmetic-basis-of-exhibit-4">I.4 Reference Panel Arithmetic (Basis of Exhibit 4)</a></li><li class="t2"><a href="#annex-j-defined-terms-and-symbols">Annex J — Defined Terms and Symbols</a></li><li class="t2"><a href="#exhibits-drawings-and-schematics">Exhibits — Drawings and Schematics</a></li><li class="t3"><a href="#exhibit-2-grus-grid-002-single-line-diagram-generation-to-data-center-en">Exhibit 2 — GRUS-GRID-002: Single-Line Diagram, Generation to Data-Center Endpoint</a></li><li class="t3"><a href="#exhibit-4-grus-grid-005-reference-panel-and-load-schedule-data-center-wo">Exhibit 4 — GRUS-GRID-005: Reference Panel and Load Schedule, Data-Center Workload Landscape (Indiscriminate)</a></li><li class="t2"><a href="#issuance">Issuance</a></li></ol></nav>
+<main>
+<div class="mast">
+  <p class="num">GRUS-STD-60084</p>
+  <p class="ed">v2.0-U &nbsp;&middot;&nbsp; Uniform Edition &nbsp;&middot;&nbsp; 42 Jurisdictional Entries &nbsp;&middot;&nbsp; CC0 1.0 Public Domain</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.23246001" target="_blank" rel="noopener">doi:10.5281/zenodo.23246001</a>
+  &nbsp;&middot;&nbsp; <a href="https://doi.org/10.5281/zenodo.23072905" target="_blank" rel="noopener">doi:10.5281/zenodo.23072905 (v2.0)</a>
+  &nbsp;&middot;&nbsp; <a href="https://isni.org/isni/0000000530334084" target="_blank" rel="noopener">ISNI 0000 0005 3033 4084</a></p>
+</div>
+
+
+<div class="ctr">
+<p style="font-size:11pt; letter-spacing:.09em; margin:0 0 14px"><b>UNIFORM EDITION &mdash; FOR ADOPTION BY ANY JURISDICTION</b></p>
+<p class="std">GRUS-STD-60084</p>
+<p style="font-family:'Courier New',monospace; font-size:10pt; letter-spacing:.05em; margin:0 0 8px">v2.0-U &nbsp;&middot;&nbsp; UNIFORM EDITION</p>
+<h1 id="measurement-and-reporting-of-resource-consumptionby-large-computational-">Measurement and Reporting of Resource Consumption<br>by Large Computational Loads<a class="pl" href="#measurement-and-reporting-of-resource-consumptionby-large-computational-" aria-label="Link to this section">&#182;</a></h1>
+<p class="sub">Proposed new <span class="je"><span class="jn">J-3</span><span class="jt">rule designation</span>&nbsp;<span class="jr"></span></span> &mdash; Measurement and Reporting of Resource<br>Consumption by Large Computational Loads</p>
+<p class="meta">
+Submitted for adoption to <span class="je"><span class="jn">J-1</span><span class="jt">adopting authority</span>&nbsp;<span class="jrl"></span></span><br>
+pursuant to <span class="je"><span class="jn">J-4</span><span class="jt">procedural route</span>&nbsp;<span class="jrl"></span></span><br><br>
+<b>Green Recursive Utility Service LLC</b> &middot; Nicholas Wray Cordova, Principal<br>
+205 East 3rd Street, Weatherford, Texas 76086<br>
+Texas SOS 806584578 &middot; SAM UEI JGT4J9QKGCQ3<br>
+management@greenrecursiveutilityservice.org &middot; 817-404-6379<br><br>
+Uniform Edition issued 7 October 2026 &middot; CC0 1.0 Universal Public Domain Dedication<br>
+The same standard as GRUS-STD-60084 v2.0, doi:10.5281/zenodo.23072905, of record in Project No. 60084
+</p>
+</div>
+
+<hr class="top">
+
+<h2 style="margin-top:4px" id="document-control">Document Control<a class="pl" href="#document-control" aria-label="Link to this section">&#182;</a></h2>
+
+<div class="tw"><table>
+<tr><th style="width:21%">Document</th><td>Measurement standard proposed for adoption as a rule of general applicability by the authority entered at <span class="jn">J-1</span><span class="jt">adopting authority</span>, under the procedural provision entered at <span class="jn">J-4</span><span class="jt">procedural route</span>.</td></tr>
+<tr><th>Proposed rule</th><td>New <span class="jn">J-3</span><span class="jt">rule designation</span>, <i>Measurement and Reporting of Resource Consumption by Large Computational Loads</i>. Designation subject to assignment by the adopting authority; placement proposed adjacent to the large-load interconnection rule entered at <span class="jn">J-7</span><span class="jt">implementing rule</span>.</td></tr>
+<tr><th>Standard number</th><td><b>GRUS-STD-60084.</b> This document is that standard, in its uniform edition, and carries the same number for that reason. The Texas instance is GRUS-STD-60084 v2.0, of record in Project No. 60084 and deposited at doi:10.5281/zenodo.23072905. This is GRUS-STD-60084 v2.0-U. The suffix designates the uniform edition and nothing else; it does not designate a different standard, a successor standard, or a revision of the engineering content.</td></tr>
+<tr><th>Source</th><td>GRUS-STD-60084 v2.0, <i>The Measurement Standard for Large Computational Loads</i>. This edition converts that document to jurisdiction-neutral form. No substantive position, formula, constant, classification, boundary, method, evidence grade, or definition has been removed, condensed, altered, or withdrawn.</td></tr>
+<tr><th>What differs</th><td>This edition differs from GRUS-STD-60084 v2.0 in one respect only. Wherever that document cites a provision of the law of a particular jurisdiction, this edition states a numbered jurisdictional entry in its place, with the governing default and a description of what the entry receives. Every engineering quantity is identical in both documents.</td></tr>
+<tr><th>Entries</th><td>Forty-two numbered jurisdictional entries, <span class="jn">J-1</span><span class="jt">adopting authority</span> through <span class="jn">J-42</span><span class="jt">counsel review</span>, scheduled in full below. Each entry carries a stated default. An entry left blank takes its default, and the standard remains operable. No entry reaches any classification, identity, constant, boundary, method, evidence grade, or defined term.</td></tr>
+<tr><th>Markup convention</th><td>Text proposed for adoption appears in bordered blocks labeled <b>RULE TEXT PROPOSED FOR ADOPTION</b>. Material outside those blocks is basis and justification and is not proposed for adoption. Where the adopting authority requires additions to be marked, the entire section is new and is marked by underlining in its entirety; no strikethrough appears.</td></tr>
+<tr><th>Severability</th><td>Each subsection is drafted to stand independently. The adopting authority may adopt any subsection, or any combination, without adopting the remainder. Subsection (n) so provides. An undeclared jurisdictional entry falls to its default and does not affect any subsection.</td></tr>
+<tr><th>Incorporation</th><td>Annexes A through J and Exhibits 1 through 5 are incorporated by reference at subsection (m) and are reproduced in full at the end of this document.</td></tr>
+<tr><th>Neutrality</th><td>The measurement specifications use only published, vendor-neutral figures and off-the-shelf instrumentation. No proprietary mechanism is required to comply. No vendor, utility, or verifier holds any exclusive position under the proposed rule. The author seeks no exclusive role.</td></tr>
+<tr><th>License</th><td>The author places this document, the proposed rule text, and the incorporated technical appendix in the public domain under the CC0 1.0 Universal Public Domain Dedication. Adoption requires no license from, no notice to, and no permission of the author, and confers no exclusive right upon the author.</td></tr>
+</table></div>
+
+<div class="toc">
+<p style="margin:18px 0 6px; font-weight:bold; font-size:11pt; border-bottom:1px solid #000; padding-bottom:3px">Contents</p>
+<div class="tw"><table>
+<tr><td style="width:19%">Schedule</td><td>Schedule of Jurisdictional Entries, <span class="m">J-1</span> through <span class="m">J-42</span></td></tr>
+<tr><td>Part I</td><td>Purpose and Statutory Frame</td></tr>
+<tr><td>Part II</td><td>Why Self-Reporting Is Insufficient as a Matter of Record</td></tr>
+<tr><td>Part III</td><td>The Independence-of-Judgment Standard Already in Force</td></tr>
+<tr><td>Part IV</td><td>The Classification Framework &mdash; Engineering Basis<br><span class="note">IV.A Hardware sourcing &middot; IV.B Density classes and the air-cooling limit &middot; IV.C The deterministic heat-and-water chain &middot; IV.D Axis 1, workload classes &middot; IV.E Axis 2, cooling classes &middot; IV.F The two-axis matrix &middot; IV.G Uniformity and the socialization gap</span></td></tr>
+<tr><td>Part V</td><td>Proposed Rule Text, Subsections (a) through (n), with Basis</td></tr>
+<tr><td>Part VI</td><td>Why Each Element Belongs Inside the Measurement</td></tr>
+<tr><td>Part VII</td><td>Request and Signature</td></tr>
+<tr><td>References</td><td>Normative and Statutory References</td></tr>
+<tr><td>Annexes</td><td>A through J, incorporated by reference at subsection (m)</td></tr>
+<tr><td>Exhibits</td><td>1 through 5, incorporated by reference at subsection (m)</td></tr>
+</table></div>
+</div>
+
+<h2 id="how-to-read-this-standard">How to Read This Standard<a class="pl" href="#how-to-read-this-standard" aria-label="Link to this section">&#182;</a></h2>
+
+<p>Parts I through III state the purpose, the statutory frame, and the reason self-reporting cannot satisfy an audit of resource consumption. Part IV supplies the engineering basis for the classification framework &mdash; the two axes against which any facility is read &mdash; stated entirely from published, vendor-neutral figures so that it can be applied by any reviewer without access to proprietary data.</p>
+
+<p>Part V is the proposed rule. Each subsection appears in a bordered block as proposed rule text, followed by its basis in ordinary type. The bordered blocks, taken together and in order, are the complete proposed text of the section. Nothing outside a bordered block is proposed for adoption.</p>
+
+<p>Part VI explains why each subsection is part of the measurement rather than an addition to it. Part VII is the request. The Technical Annexes are incorporated by reference at subsection (m) and are not appendices of convenience. Annex I in particular states every formula used anywhere in this document, together with the worked arithmetic, so that any reviewing engineer can reproduce or refute each number without contacting the author.</p>
+
+<p><b>How the jurisdictional entries work.</b> Everywhere this standard would otherwise cite the law of one jurisdiction, it states a numbered entry instead &mdash; <span class="jn">J-1</span><span class="jt">adopting authority</span> through <span class="jn">J-42</span><span class="jt">counsel review</span> &mdash; followed by a ruled space and, in parentheses, a description of what the space receives. The Schedule immediately below lists every entry once, with its default, so the adopting authority may complete the Schedule in a single pass and need not search the document for the spaces. Completing the Schedule completes the standard. A space left blank takes the default stated for it in the Schedule.</p>
+
+<p>The entries are closed in number and closed in kind. No entry alters a classification on either axis, a measurement boundary, a formula, a physical constant, an instrument accuracy requirement, an evidence grade, or a defined term, for the reason stated at the end of the Schedule: those are not matters of law.</p>
+
+<h2 class="pb" id="schedule-of-jurisdictional-entries">Schedule of Jurisdictional Entries<a class="pl" href="#schedule-of-jurisdictional-entries" aria-label="Link to this section">&#182;</a></h2>
+
+<div class="box">
+<p><b>What this Schedule is, in plain terms.</b> This standard is written to be adopted by any jurisdiction. The science in it does not change from one jurisdiction to the next, because the latent heat of vaporization of water does not change at a state line. What changes is the law: which agency holds authority, what minimum water pressure is codified, at how many megawatts the rule attaches, what counts as one service connection.</p>
+<p>Rather than write one jurisdiction's statutes into the text and force every other jurisdiction to find and replace them, this standard states a <b>numbered entry</b> at each of those points &mdash; forty-two of them, numbered <span class="m">J-1</span> through <span class="m">J-42</span>. An entry is a labeled blank line with a stated default. The adopting authority writes its own provision on the line. Nothing else in the standard moves.</p>
+<p><b>Each entry carries its label wherever it appears.</b> In the body of the document an entry looks like this:</p>
+<p style="margin:10px 0 10px 22px"><span class="je"><span class="jn">J-13</span><span class="jt">design pressure</span>&nbsp;<span class="jrl"></span></span></p>
+<p>The black tab is the entry number, for cross-reference to this Schedule. The grey tab says what the entry is. The rule is where the citation or value goes. A parenthetical after it, where one appears, states exactly what to write. No reader has to turn back to this page to learn what an entry means.</p>
+<p><b>Twenty-two of the forty-two carry a working default</b>, taken from published engineering consensus rather than from any one jurisdiction &mdash; 35 psi, 20 psi, 1.5 gpm per connection, 0.6 gpm, 200 gallons, 75 megawatts, 36 months, and the rest, each shown in the Default column below. <b>A line left blank takes its default, and the standard still operates.</b> Subsection (n) of the rule text says so. That is what separates this Schedule from a form with holes in it.</p>
+<p><b>No entry reaches the engineering.</b> Not a classification on either axis, not a measurement boundary, not a formula, not a physical constant, not an instrument accuracy class, not an evidence grade, not a defined term. The closing box of this Schedule lists what is fixed and cannot be varied by any entry on it.</p>
+</div>
+
+<p>The adopting authority completes this Schedule. Each entry receives the citation, name, or value indicated in the description column. An entry for which the jurisdiction has no corresponding provision or body is completed <i>none</i>; an entry the jurisdiction adopts at its stated default is completed <i>default adopted</i> or left blank.</p>
+
+<div class="jblk">
+<p>Jurisdiction: <span class="jrl"></span>&nbsp;&nbsp;&nbsp;Date: <span class="jrs"></span></p>
+<p>Completed by: <span class="jrl"></span>&nbsp;&nbsp;&nbsp;Title: <span class="jr"></span></p>
+<p>Body: <span class="jrl" style="min-width:420px"></span></p>
+</div>
+
+<h3 id="group-a-the-adopting-authority-and-the-instrument">Group A &mdash; The adopting authority and the instrument<a class="pl" href="#group-a-the-adopting-authority-and-the-instrument" aria-label="Link to this section">&#182;</a></h3>
+
+<div class="tw"><table class="sched">
+<tr><th style="width:6%">Entry</th><th style="width:21%">Receives</th><th style="width:30%">Description &mdash; what is entered in the space</th><th style="width:21%">Default</th><th style="width:22%">Value entered</th></tr>
+<tr><td class="m c">J-1</td><td>Adopting authority</td><td>The name of the commission, agency, board, or body adopting this standard.</td><td>No default</td><td style="height:26px">&nbsp;</td></tr>
+<tr><td class="m c">J-2</td><td>General rulemaking authority</td><td>The provision conferring general rulemaking authority on the body at <span class="m">J-1</span>.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-3</td><td>Rule designation</td><td>The code title, chapter, and section number the adopted rule will occupy.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-4</td><td>Procedural route</td><td>The provision under which a rule of general applicability is proposed, petitioned for, or initiated in this jurisdiction.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-5</td><td>Large-load interconnection statute</td><td>The statute establishing interconnection standards for large electric loads, including any site-control, disclosure, study, or cost-contribution obligation.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-6</td><td>Applicability threshold</td><td>The aggregate electrical demand at a single site at which this standard attaches, in megawatts.</td><td><b>75 MW</b></td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-7</td><td>Implementing interconnection rule</td><td>The administrative rule implementing the statute at <span class="m">J-5</span>, including any fee or financial-security provision.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-8</td><td>Interconnection cost-allocation statute</td><td>The provision assigning interconnection and infrastructure cost to the load causing it.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-9</td><td>Grid operator</td><td>The balancing authority, transmission provider, independent system operator, or regional transmission organization serving the jurisdiction, and the provision certifying or establishing it.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-10</td><td>Existing usage-reporting requirement</td><td>Any survey, inventory, registration, or reporting requirement already applicable to computational facilities in the jurisdiction, with its compliance record if known.</td><td>None</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-11</td><td>Audit or verification directive</td><td>Any executive order, legislative directive, or agency order requiring verification or audit of computational-facility resource consumption, with its date.</td><td>None</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-34</td><td>Rate standard</td><td>The provision requiring rates to be just and reasonable and prohibiting unreasonable discrimination among customer classes.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-35</td><td>Large-load demand management</td><td>Any provision authorizing demand management, curtailment, or load-shed obligations for large loads.</td><td>None</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-36</td><td>Construction of &ldquo;shall&rdquo;</td><td>The provision of the jurisdiction's statutory construction law governing the mandatory sense of &ldquo;shall.&rdquo;</td><td>Mandatory</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-37</td><td>Public comment</td><td>The provision governing the public comment period on a proposed rule.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-40</td><td>Open cost proceeding</td><td>Any pending proceeding in which large-load cost allocation is under consideration.</td><td>None</td><td>&nbsp;</td></tr>
+</table></div>
+
+<h3 id="group-b-water-system-authority-and-the-integrity-floors">Group B &mdash; Water system authority and the integrity floors<a class="pl" href="#group-b-water-system-authority-and-the-integrity-floors" aria-label="Link to this section">&#182;</a></h3>
+
+<p class="note">The defaults in this group are those of the <i>Recommended Standards for Water Works</i> published by the Great Lakes &mdash; Upper Mississippi River Board, the engineering consensus from which most jurisdictional water-system standards in the United States derive, with 40 CFR Part 141 as the federal floor. A jurisdiction entering a different value cites the provision supplying it.</p>
+
+<div class="tw"><table class="sched">
+<tr><th style="width:6%">Entry</th><th style="width:21%">Receives</th><th style="width:30%">Description &mdash; what is entered in the space</th><th style="width:21%">Default</th><th style="width:22%">Value entered</th></tr>
+<tr><td class="m c">J-12</td><td>Point-of-use submetering authority</td><td>The provision recognizing or authorizing a submeter installed downstream of a master meter to measure a defined use.</td><td>Installed by agreement with the supplying system</td><td style="height:26px">&nbsp;</td></tr>
+<tr><td class="m c">J-13</td><td>Design pressure provision</td><td>The provision requiring the distribution system to be <i>designed</i> to a stated minimum pressure at all points.</td><td><b>Not less than 35 psi</b></td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-14</td><td>Design flow per connection</td><td>The per-connection flow rate at which the design pressure at <span class="m">J-13</span> must be maintained at all points.</td><td><b>1.5 gpm per connection</b></td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-15</td><td>Combined fire and drinking flow</td><td>The minimum residual pressure required at all points under combined fire and drinking-water flow conditions.</td><td><b>20 psi</b></td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-16</td><td>Operating pressure provision</td><td>The provision requiring the system to be <i>operated</i> at a stated minimum pressure under normal conditions, and at a stated minimum during emergencies.</td><td><b>35 psi normal; 20 psi emergency</b></td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-17</td><td>Minimum capacity provision</td><td>The provision stating minimum source, service-pump, and storage capacity per connection by system category.</td><td><b>0.6 gpm production; 200 gal total storage; 100 gal elevated storage, or 20 gal pressure-tank capacity where the jurisdiction permits one; 2.0 gpm service pump &mdash; each per connection</b></td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-18</td><td>Definition of a connection</td><td>The provision defining a service connection, and whether any service-unit equivalency or demand-based conversion applies to a high-consumption non-residential customer.</td><td><b>Each commercial or industrial establishment supplied is one connection; no demand-based equivalency applies</b></td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-19</td><td>Metered-history alternative</td><td>The period of metered operational history required before a demonstrated maximum daily demand may be substituted for the per-connection capacity figures at <span class="m">J-17</span>.</td><td><b>36 consecutive months</b></td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-20</td><td>Engineering plan submittal</td><td>The provision requiring plans and specifications for water system facilities to be prepared under the direction of a licensed professional engineer and submitted for review in advance of the approval sought, with the submittal interval.</td><td><b>Prepared under the direction of a licensed professional engineer, sealed, signed, dated, and submitted in advance of the approval sought</b></td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-21</td><td>Public notification on pressure loss</td><td>The provision stating the precautionary and public-notification obligations that attach on loss of pressure below the operating floor at <span class="m">J-16</span>.</td><td>Notification required</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-24</td><td>Drinking water authority</td><td>The body holding jurisdiction over public drinking water systems.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-25</td><td>Wastewater authority and permits</td><td>The body receiving wastewater discharge and the provisions governing discharge permitting.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-26</td><td>Surface-water authority</td><td>The body holding jurisdiction over surface-water appropriation and the provisions governing it.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-27</td><td>Groundwater authority</td><td>The body holding jurisdiction over groundwater production, where one exists, and the provisions governing it.</td><td>None</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-28</td><td>Reclaimed water</td><td>The provisions authorizing the reuse of treated effluent.</td><td>None</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-33</td><td>Regional water planning</td><td>The body conducting regional or state water planning and the provisions governing it, with the planning horizon.</td><td>None</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-38</td><td>Drought and curtailment stages</td><td>The framework establishing drought contingency stages applicable to industrial and commercial use.</td><td>None</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-39</td><td>Emergency power delivery</td><td>The per-connection flow the system must deliver at stated pressures on loss of normal power.</td><td><b>0.35 gpm per connection</b></td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-41</td><td>Public water system identifier</td><td>The identifier scheme by which a public water system is designated in the jurisdiction.</td><td>No default</td><td>&nbsp;</td></tr>
+</table></div>
+
+<h3 id="group-c-the-verifier-land-use-and-counsel">Group C &mdash; The verifier, land use, and counsel<a class="pl" href="#group-c-the-verifier-land-use-and-counsel" aria-label="Link to this section">&#182;</a></h3>
+
+<div class="tw"><table class="sched">
+<tr><th style="width:6%">Entry</th><th style="width:21%">Receives</th><th style="width:30%">Description &mdash; what is entered in the space</th><th style="width:21%">Default</th><th style="width:22%">Value entered</th></tr>
+<tr><td class="m c">J-22</td><td>Verifier independence standard</td><td>The provision of the jurisdiction's own law establishing that a third-party verifier is qualified by reason of facilities, personnel, experience, demonstrated reliability, and independence of judgment.</td><td><b>ISO/IEC 17020 and ISO/IEC 17025 impartiality and independence requirements</b></td><td style="height:26px">&nbsp;</td></tr>
+<tr><td class="m c">J-23</td><td>Verifier attestation criteria</td><td>The provision stating what an independent verifier must attest on application or approval.</td><td><b>The four attestations at subsection (g)(2)(A) through (D)</b></td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-29</td><td>Zoning authority</td><td>The body holding jurisdiction over land use and zoning at a site, and the provisions governing it, including any requirement that zoning conform to a comprehensive plan providing for water and sewer.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-30</td><td>Subdivision and county development</td><td>The provisions governing subdivision platting and development approval outside municipal limits.</td><td>No default</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-31</td><td>Tax abatement</td><td>The provisions governing property tax abatement or incentive agreements.</td><td>None</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-32</td><td>Emergency services district</td><td>The provisions governing emergency services districts and their fire-protection obligations.</td><td>None</td><td>&nbsp;</td></tr>
+<tr><td class="m c">J-42</td><td>Counsel review</td><td>The description of counsel qualified to perform the legal review flagged at Annex F.1, point 10.</td><td><b>Qualified utility or water counsel licensed in the jurisdiction</b></td><td>&nbsp;</td></tr>
+</table></div>
+
+<div class="box">
+<p><b>What is not a jurisdictional entry.</b> The following are normative and fixed, and no entry on this Schedule varies them: every workload class W-1 through W-3 and every cooling class C-1 through C-5; the automatic reclassification rule; the transport boundary M2 and the fence meter M1; the Two-Meter Method; every identity, constant, and derivation in Annex I, including the heat identity <span class="m">Q = P &times; 3,412,142</span> BTU/hr per MW, the latent heat <span class="m">h_fg &asymp; 1,050</span> BTU/lb, the density of water 8.34 lb/gal, and the resulting evaporation rate of 389.6 gal/hr per MW rejected; the psychrometric formulation of Annex I.2 and its six coefficients; the airflow relation of Part IV.B and its air-density constant; the load-factor test of subsection (d)(2) and its threshold of 0.95; the solids balance of Annex I.3 and the relations for blowdown, drift and makeup; the psychrometric matrix of Annex B; the heat-transfer boundary specifications of Annex C and the forensic rules at C.6; the air-cooling limit of 25 to 30 kW per rack; the instrument accuracy requirements of subsections (f) and (i); the evidence grades of subsection (k); and every term defined at subsection (c) and Annex J.</p>
+<p>These do not vary because they are not matters of law. A jurisdiction cannot legislate the latent heat of vaporization of water, and no jurisdiction has tried.</p>
+</div>
+
+<p class="note">No filing with, notice to, or permission from the author is required to complete, adopt, reproduce, translate, incorporate by reference, or rely upon this Schedule or this standard. The author retains no exclusive role in its use, adoption, administration, or verification, and no provision of it confers one.</p>
+<h2 class="pb" id="part-i-purpose-and-statutory-frame">Part I &mdash; Purpose and Statutory Frame<a class="pl" href="#part-i-purpose-and-statutory-frame" aria-label="Link to this section">&#182;</a></h2>
+
+<p><b>Procedural posture.</b> This document requests adoption of a rule of general applicability under <span class="je"><span class="jn">J-4</span><span class="jt">procedural route</span>&nbsp;<span class="jr"></span></span> <span class="jd">(the provision under which a rule is proposed, petitioned for, or initiated)</span> and the general rulemaking authority of the adopting authority at <span class="je"><span class="jn">J-2</span><span class="jt">rulemaking authority</span>&nbsp;<span class="jr"></span></span> <span class="jd">(the provision conferring general rulemaking authority)</span>. It opens no new subject. It completes a measurement framework by supplying the definitional sections &mdash; and the statutory basis for each &mdash; without which the framework cannot be applied uniformly.</p>
+
+<h3 id="1-1-what-is-already-before-the-adopting-authority">1.1 What is already before the adopting authority<a class="pl" href="#1-1-what-is-already-before-the-adopting-authority" aria-label="Link to this section">&#182;</a></h3>
+
+<p>The authority and the obligation to measure large-load consumption are, in most jurisdictions that have legislated on large electric loads at all, already codified. This standard operates entirely inside the existing statutory framework of the adopting jurisdiction. It does not add new demands. It completes the definitions the framework requires in order to be enforceable, and it directs the adopting authority to the provisions of its own law that already require them.</p>
+
+<p>The distinction matters procedurally. A proposal asking an authority to regulate something it has not been asked to regulate is a new subject. A proposal supplying the operative definitions for a measurement the authority is already directed to obtain is completion of an existing framework. This is the second kind. Every subsection proposed in Part V attaches to an obligation that exists in the statute, rule, or directive entered at <span class="jn">J-5</span><span class="jt">interconnection statute</span>, <span class="jn">J-7</span><span class="jt">implementing rule</span>, <span class="jn">J-8</span><span class="jt">cost-allocation statute</span>, <span class="jn">J-10</span><span class="jt">usage-reporting requirement</span>, <span class="jn">J-11</span><span class="jt">audit directive</span>, <span class="jn">J-12</span><span class="jt">submetering authority</span>, <span class="jn">J-13</span><span class="jt">design pressure</span>, <span class="jn">J-16</span><span class="jt">operating pressure</span>, <span class="jn">J-17</span><span class="jt">capacity per connection</span>, and <span class="jn">J-20</span><span class="jt">engineering plan submittal</span>; none creates a new obligation, and none requires an instrument the jurisdiction's law has not already defined.</p>
+
+<h3 id="1-2-the-codified-authority-and-obligation">1.2 The codified authority and obligation<a class="pl" href="#1-2-the-codified-authority-and-obligation" aria-label="Link to this section">&#182;</a></h3>
+
+<h4 id="1-2-1-the-large-load-interconnection-statute">1.2.1 The large-load interconnection statute<a class="pl" href="#1-2-1-the-large-load-interconnection-statute" aria-label="Link to this section">&#182;</a></h4>
+
+<p>Enter at <span class="je"><span class="jn">J-5</span><span class="jt">interconnection statute</span>&nbsp;<span class="jrl"></span></span> <span class="jd">(the statute establishing interconnection standards for large electric loads)</span>, with its effective date, which directs the adopting authority to establish interconnection standards for any new or expanded large load exceeding <span class="je"><span class="jn">J-6</span><span class="jt">applicability threshold</span>&nbsp;<span class="jrs"></span></span> <span class="jd">(the threshold, in megawatts; default 75 MW)</span> at a single site, including demonstrated site control, disclosure obligations, and detailed site-related studies.</p>
+
+<p>Two features of such a statute matter directly, and the standard is drafted to operate with either present or absent.</p>
+
+<p><b>First</b>, where the statute contemplates a water study as a <i>recurring</i> deliverable rather than a one-time representation, it presupposes a measurement method capable of producing a comparable figure period over period. A figure not produced by a stated method against a stated boundary cannot be compared to the figure produced three months earlier, and a quarterly series of such figures records nothing. <b>Second</b>, where the statute routes large-load disclosure through the transmission provider and the grid operator entered at <span class="je"><span class="jn">J-9</span><span class="jt">grid operator</span>&nbsp;<span class="jr"></span></span> <span class="jd">(the balancing authority, ISO, or RTO)</span> rather than through the load's own unverified statement, it has already adopted the integrity principle this standard applies to the water leg. The rule proposed here supplies the water-side and electrical-side methods that make both features operable.</p>
+
+<h4 id="1-2-2-the-implementing-rules">1.2.2 The implementing rules<a class="pl" href="#1-2-2-the-implementing-rules" aria-label="Link to this section">&#182;</a></h4>
+
+<p>Enter at <span class="je"><span class="jn">J-7</span><span class="jt">implementing rule</span>&nbsp;<span class="jrl"></span></span> <span class="jd">(the administrative rule implementing the statute at J-5, with its adoption date)</span>. The section proposed here is drafted to operate alongside that rule and is proposed for placement adjacent to it. Where the implementing rule establishes an interconnection fee, study fee, or financial security obligation, enter those provisions at the same entry; they are the basis against which cost causation is measured under subsection (l).</p>
+
+<h4 id="1-2-3-the-survey-and-its-documented-failure">1.2.3 The survey and its documented failure<a class="pl" href="#1-2-3-the-survey-and-its-documented-failure" aria-label="Link to this section">&#182;</a></h4>
+
+<p>Enter at <span class="je"><span class="jn">J-10</span><span class="jt">usage-reporting requirement</span>&nbsp;<span class="jrl"></span></span> <span class="jd">(any existing survey, inventory, or self-reporting requirement applicable to computational facilities, with its compliance rate if known)</span>.</p>
+
+<p>Where such a requirement exists and its compliance record is known, that record is the empirical premise of Part II of this document. In the jurisdiction from which this standard was first developed, a legislatively established survey requiring data centers to report water and power usage produced compliance from fewer than ten percent of data centers, and that documented failure was the stated basis of the verification directive that followed. A jurisdiction with no such requirement and therefore no such record is not thereby in a better position; it is in the position of having no record at all, which Part II addresses on the same reasoning.</p>
+
+<h4 id="1-2-4-the-audit-or-verification-directive">1.2.4 The audit or verification directive<a class="pl" href="#1-2-4-the-audit-or-verification-directive" aria-label="Link to this section">&#182;</a></h4>
+
+<p>Enter at <span class="je"><span class="jn">J-11</span><span class="jt">audit directive</span>&nbsp;<span class="jrl"></span></span> <span class="jd">(any executive order, legislative directive, or agency order requiring verification or audit of computational-facility consumption, with its date)</span>.</p>
+
+<p>A directive of that kind ordinarily requires three quantities: a water consumption figure, annual and peak; an identified and legally authorized source; and a stated cooling technology. What such a directive does not, and by its nature cannot, specify is <i>how</i> those three quantities are to be measured, <i>by whom</i>, <i>against what facility class</i>, and <i>in what form</i> the result is transmitted to the several authorities that need it. Those are engineering and definitional questions, and they are the subject of Part V. Where no directive exists, the same three quantities remain the quantities any evaluation of a large load requires, and Part V supplies the method by which they are produced.</p>
+
+<h4 id="1-2-5-water-metering-authority-already-exists">1.2.5 Water metering authority already exists<a class="pl" href="#1-2-5-water-metering-authority-already-exists" aria-label="Link to this section">&#182;</a></h4>
+
+<p>Enter at <span class="je"><span class="jn">J-12</span><span class="jt">submetering authority</span>&nbsp;<span class="jrl"></span></span> <span class="jd">(the provision recognizing a point-of-use submeter downstream of a master meter)</span>.</p>
+
+<p>Point-of-use submetering &mdash; a meter placed downstream of a master meter to measure a defined use &mdash; is a recognized instrument and a recognized regulatory concept in essentially every jurisdiction that regulates water service, whether by rule, by tariff, or by agreement with the supplying system. The concept, the instrument, and the regulatory recognition all exist. The proposed rule applies that codified concept to a defined point: the feed to an evaporative circuit. Where the jurisdiction has no codified provision, the entry is completed to state that the submeter is installed by agreement with the supplying system, which is the default and is sufficient.</p>
+
+<h4 id="1-2-6-the-system-integrity-floors-already-exist">1.2.6 The system-integrity floors already exist<a class="pl" href="#1-2-6-the-system-integrity-floors-already-exist" aria-label="Link to this section">&#182;</a></h4>
+
+<p>Public water systems are bound by both a design standard and an operating standard. Enter the governing provisions:</p>
+
+<div class="jblk">
+<p><span class="jn">J-13</span><span class="jt">design pressure</span>&nbsp;<span class="jrl"></span>&nbsp;&mdash; <b>Design standard.</b> The distribution system must be <i>designed</i> to maintain a minimum pressure of <span class="jrs"></span> psi at all points within the distribution network at flow rates of at least <span class="jn">J-14</span><span class="jt">design flow per connection</span> <span class="jrs"></span> gpm per connection. <span class="jd">(Defaults: not less than 35 psi; 1.5 gpm per connection.)</span></p>
+<p><span class="jn">J-15</span><span class="jt">fire-flow pressure</span>&nbsp;<span class="jrl"></span>&nbsp;&mdash; <b>Fire-flow standard.</b> Where the system provides firefighting capability, it must also be designed to maintain at least <span class="jrs"></span> psi under combined fire and drinking-water flow conditions. <span class="jd">(Default: 20 psi.)</span></p>
+<p><span class="jn">J-16</span><span class="jt">operating pressure</span>&nbsp;<span class="jrl"></span>&nbsp;&mdash; <b>Operating standard.</b> All public water systems must be <i>operated</i> to provide a minimum pressure of <span class="jrs"></span> psi throughout the distribution system under normal operating conditions, and to maintain at least <span class="jrs"></span> psi during emergencies such as firefighting. <span class="jd">(Defaults: 35 psi normal; 20 psi emergency.)</span></p>
+<p><span class="jn">J-17</span><span class="jt">capacity per connection</span>&nbsp;<span class="jrl"></span>&nbsp;&mdash; <b>Capacity standard.</b> Minimum source, service-pump, and storage capacity, stated per connection by system category. <span class="jd">(Defaults: 0.6 gpm production, 200 gallons total storage, 100 gallons elevated storage or 20 gallons of pressure-tank capacity where the jurisdiction permits one, and 2.0 gpm service pump, each per connection. Where the jurisdiction states capacity by system category, the entry states the category applicable to the supplying system.)</span></p>
+</div>
+
+<p>The design floor and the operating floor are distinct obligations, and both are relevant. A distribution system may have been lawfully designed to its design pressure years before a large evaporative load appeared on it, and still fail the operating requirement once that load is added at coincident summer peak. A measurement standard that produces the added consumptive draw at the point and time it occurs is what allows either obligation to be evaluated before the failure rather than after it.</p>
+
+<h3 id="1-3-the-four-specifications-the-framework-does-not-yet-contain">1.3 The four specifications the framework does not yet contain<a class="pl" href="#1-3-the-four-specifications-the-framework-does-not-yet-contain" aria-label="Link to this section">&#182;</a></h3>
+
+<p>Where an audit is mandatory and the metering concept is codified, what the framework still does not specify is:</p>
+
+<ol>
+<li><b>The measurement boundary</b> &mdash; the physical point at which water and electrical consumption are read. Proposed subsection (f) on the water leg; subsection (i) on the electrical leg.</li>
+<li><b>Who is competent to verify it</b> &mdash; the qualification and independence of the party whose reading the jurisdiction relies upon. Proposed subsection (g).</li>
+<li><b>The facility classes it must read</b> &mdash; the workload and cooling classifications that determine which measurement method applies and against which peak the facility is assessed. Proposed subsections (d), (e), and (h).</li>
+<li><b>How its output resolves jurisdiction</b> &mdash; the single standardized record readable by every authority with jurisdiction over a component of the site's draw, together with the realized-figure and cost-causation consequences that follow. Proposed subsections (j), (k), and (l).</li>
+</ol>
+
+<h3 id="1-4-what-this-standard-does-not-do">1.4 What this standard does not do<a class="pl" href="#1-4-what-this-standard-does-not-do" aria-label="Link to this section">&#182;</a></h3>
+
+<p>For clarity of the record, and to narrow what the adopting authority must decide:</p>
+
+<ul>
+<li><b>It does not propose a new instrument.</b> Every meter specified is an off-the-shelf device already used for revenue billing or tenant allocation.</li>
+<li><b>It does not propose inspection of software</b>, source code, model weights, customer algorithms, or tenant data. Measurement operates only on detectable physical electrical, thermal, and hydraulic quantities. Proposed subsection (b)(4) states this as an operative limit of the rule.</li>
+<li><b>It does not propose a cap, a moratorium, a siting restriction, or a denial standard.</b> It proposes measurement. What the jurisdiction does with a measured figure is the jurisdiction's determination.</li>
+<li><b>It does not name, target, or evaluate any operator.</b> Every figure used is drawn from published vendor-neutral specifications.</li>
+<li><b>It does not seek any exclusive role</b> for the author, or for any vendor, utility, or verifier, in performing the measurement it proposes.</li>
+<li><b>It does not propose a remedy, a threshold, or a penalty.</b> Those are governmental determinations belonging to the bodies holding the applicable statutory authority. The author does not hold that authority and does not seek it.</li>
+</ul>
+
+<h2 id="part-ii-why-self-reporting-is-insufficient-as-a-matter-of-record-and-why">Part II &mdash; Why Self-Reporting Is Insufficient as a Matter of Record,<br>and Why Third-Party Verification Is Required<a class="pl" href="#part-ii-why-self-reporting-is-insufficient-as-a-matter-of-record-and-why" aria-label="Link to this section">&#182;</a></h2>
+
+<h3 id="2-1-self-reporting-has-already-failed-in-this-exact-context-on-the-recor">2.1 Self-reporting has already failed in this exact context, on the record<a class="pl" href="#2-1-self-reporting-has-already-failed-in-this-exact-context-on-the-recor" aria-label="Link to this section">&#182;</a></h3>
+
+<p>Where the jurisdiction has an existing self-reporting requirement at <span class="jn">J-10</span><span class="jt">usage-reporting requirement</span>, its compliance record is the first evidence in this analysis. In the jurisdiction from which this standard was developed, a survey measuring data-center water and power usage produced compliance from fewer than ten percent of data centers, and that documented failure was the stated basis of the verification directive that followed.</p>
+
+<p>The significance is not that the compliance rate was low. It is that the failure was <i>method</i> failure, not enforcement failure. The survey asked the measured party to produce its own figure. Fewer than one in ten produced anything at all, and for those that did, the State received an assertion whose accuracy it had no independent means to test. A standard that permits the measured party to produce its own unverified figure repeats the precise failure an audit is ordered to cure &mdash; and does so at a moment when very large volumes of interconnection requests are pending on the answer.</p>
+
+<h3 id="2-2-no-other-regulated-connection-to-shared-public-infrastructure-is-cer">2.2 No other regulated connection to shared public infrastructure is certified by the connecting party's own word<a class="pl" href="#2-2-no-other-regulated-connection-to-shared-public-infrastructure-is-cer" aria-label="Link to this section">&#182;</a></h3>
+
+<p>An electrical interconnection is inspected and verified independently. A plumbing tie-in to a public water system is inspected and verified independently. A commercial revenue meter is set, sealed, and read by the utility, not by the customer. Elevators, boilers, fire-suppression systems, and structural welds are all verified by a party other than the one whose work is being verified.</p>
+
+<p>The integrity principle is uniform across utility regulation: <b>the party consuming a shared public resource does not self-certify its own consumption.</b> Where the statute at <span class="jn">J-5</span><span class="jt">interconnection statute</span> routes large-load disclosures through the transmission provider and the grid operator at <span class="jn">J-9</span><span class="jt">grid operator</span> rather than through the load's unverified self-statement, the statute itself embodies the principle. The water measurement should follow the same principle the electrical measurement already follows.</p>
+
+<p>Stated as a question the adopting authority can answer directly: if the electrical interconnection of a load at the threshold entered at <span class="jn">J-6</span><span class="jt">applicability threshold</span> is not accepted on the applicant's own word, there is no principled reason the water consumption of the same load at the same site on the same day should be.</p>
+
+<h3 id="2-3-the-requirement-stated">2.3 The requirement stated<a class="pl" href="#2-3-the-requirement-stated" aria-label="Link to this section">&#182;</a></h3>
+
+<p>The standard must require independent third-party measurement or verification. The measurement shall be performed by, or verified by, a qualified party independent of the entity being measured, in accordance with the specifications proposed in Part V. The requirement is not satisfied by a figure produced solely by the entity being measured.</p>
+
+<p>Two elements of that sentence are load-bearing and are defined precisely in Part V. <b>Qualified</b> is defined by reference to the independence-of-judgment standard entered at <span class="je"><span class="jn">J-22</span><span class="jt">verifier independence standard</span>&nbsp;<span class="jr"></span></span> <span class="jd">(the jurisdiction's own provision, or the default at ISO/IEC 17020 and 17025)</span> &mdash; not by any new licensing scheme, registry, or certification program, none of which presently exists for this field and none of which this standard asks any authority to create. <b>In accordance with the specifications proposed</b> means the verifier reads the boundaries defined in proposed subsections (f) and (i), against the classification defined in subsections (d), (e), and (h), and reports in the form defined in subsection (j). A verification performed against no stated method is not a verification; it is a second assertion.</p>
+
+<h3 id="2-4-the-cost-of-the-alternative">2.4 The cost of the alternative<a class="pl" href="#2-4-the-cost-of-the-alternative" aria-label="Link to this section">&#182;</a></h3>
+
+<p>If the standard permits self-reported figures, three consequences follow mechanically:</p>
+
+<ol>
+<li><b>The figure is unfalsifiable.</b> No reviewing agency can distinguish a conservative estimate from an optimistic one, because no physical reading exists against which either can be checked.</li>
+<li><b>Cost causation cannot be enforced.</b> The provision entered at <span class="je"><span class="jn">J-8</span><span class="jt">cost-allocation statute</span>&nbsp;<span class="jr"></span></span> <span class="jd">(the cost-allocation statute)</span> assigns interconnection and infrastructure cost to the load that causes it. Assignment requires a measured quantity of causation. Without one, the default is socialization onto the general rate base &mdash; the outcome such a statute is enacted to prevent.</li>
+<li><b>Failures surface only physically.</b> A municipal system that cannot hold the operating pressure at <span class="jn">J-16</span><span class="jt">operating pressure</span> under a new coincident load does not announce the fact administratively. It announces it as a pressure complaint, a brown-water event, or a precautionary notice under <span class="jn">J-21</span><span class="jt">public notification</span>, after the fact, to residents who had no part in the transaction.</li>
+</ol>
+
+<h2 id="part-iii-the-independence-of-judgment-standard-already-in-force">Part III &mdash; The Independence-of-Judgment Standard Already in Force<a class="pl" href="#part-iii-the-independence-of-judgment-standard-already-in-force" aria-label="Link to this section">&#182;</a></h2>
+
+<h3 id="3-1-the-standard-that-governs-who-may-verify-a-measurement-already-exist">3.1 The standard that governs who may verify a measurement already exists<a class="pl" href="#3-1-the-standard-that-governs-who-may-verify-a-measurement-already-exist" aria-label="Link to this section">&#182;</a></h3>
+
+<p>No jurisdiction needs a new definition of a competent verifier. One already exists, in two places, and the operative quality both name is <b>independence of judgment</b>.</p>
+
+<p><b>In the jurisdiction's own law.</b> Most jurisdictions that permit third-party inspection of regulated work define the inspecting party as one determined to be qualified by reason of <b>facilities, personnel, experience, demonstrated reliability, and independence of judgment</b> to inspect work for compliance with approved plans, documentation, a compliance-control program, and the applicable code. Enter the governing provision at <span class="je"><span class="jn">J-22</span><span class="jt">verifier independence standard</span>&nbsp;<span class="jrl"></span></span> <span class="jd">(the provision of the jurisdiction's own law stating the independence-of-judgment standard for a third-party verifier; where the jurisdiction has none, the entry takes its default)</span>.</p>
+
+<p><b>In international consensus standards.</b> ISO/IEC 17020, governing bodies performing inspection, and ISO/IEC 17025, governing testing and calibration laboratories, each state impartiality and independence requirements of the same substance. These are the default basis for <span class="jn">J-22</span><span class="jt">verifier independence standard</span>, and they apply in any jurisdiction, whether or not that jurisdiction has a provision of its own.</p>
+
+<p class="note"><b>Citation note.</b> Where a jurisdiction's provision has been renumbered by amendment, the adopting authority should read the entry at <span class="jn">J-22</span><span class="jt">verifier independence standard</span> as being to the <i>definition</i>, which has been stable in substance, rather than to a paragraph number that has moved.</p>
+
+<p>The structure of that definition is worth stating plainly, because it is the structure the measurement standard borrows: verification of compliance is entrusted to a party independent of the party whose work is being verified, precisely because independence of judgment is the quality that makes a verification reliable. Facilities, personnel, experience, and demonstrated reliability establish that the verifier <i>can</i> measure. Independence of judgment establishes that the measurement <i>can be relied upon</i>.</p>
+
+<h3 id="3-2-a-self-report-cannot-meet-that-standard">3.2 A self-report cannot meet that standard<a class="pl" href="#3-2-a-self-report-cannot-meet-that-standard" aria-label="Link to this section">&#182;</a></h3>
+
+<p>A data center's self-report of its own consumption cannot meet the standard, and the reason is definitional rather than reputational. The measured party is not independent of the measurement; it has a direct interest in the result. A figure produced by the party being measured therefore lacks the independence of judgment that the law at <span class="jn">J-22</span><span class="jt">verifier independence standard</span> already requires of a verification, and is an assertion rather than a verified measurement. No inference of bad faith is required to reach that conclusion, and none is offered here. The point is structural: the same figure produced by an interested party and by a disinterested party are not the same evidentiary object, and the law has already decided which one a verification is.</p>
+
+<h3 id="3-3-the-approval-criteria-are-also-already-written">3.3 The approval criteria are also already written<a class="pl" href="#3-3-the-approval-criteria-are-also-already-written" aria-label="Link to this section">&#182;</a></h3>
+
+<p>The law goes further than defining independence; it states operationally what an independent verifier must attest. Enter the governing provision at <span class="je"><span class="jn">J-23</span><span class="jt">verifier attestation criteria</span>&nbsp;<span class="jrl"></span></span> <span class="jd">(the provision stating what an independent verifier must attest on application or approval)</span>. A party seeking approval ordinarily must submit a signed statement that, among other things:</p>
+
+<ul>
+<li>its board, as a body, and its managerial and inspection personnel, as individuals, are free to exercise independence of judgment in the performance of their duties;</li>
+<li>its activities in discharging its responsibilities will not result in financial benefit via stock ownership or other financial interest in any producer, supplier, or vendor of the products involved, other than through standard fees for services rendered;</li>
+<li>it will consistently and uniformly implement the governing interpretations of the standards and rules; and</li>
+<li>it will not provide design services for the party whose work it inspects.</li>
+</ul>
+
+<p>Every one of those four attestations transposes directly onto the measurement proposed here, and the fourth is the most important. A party that designed the cooling plant, specified the misting skid, or engineered the electrical distribution is not positioned to verify the consumption of what it designed. The standard proposed in subsection (g) adopts these criteria by reference rather than inventing new ones, which has the additional advantage that a verifier in the jurisdiction already knows what the attestation means.</p>
+
+<h3 id="3-4-this-is-not-a-new-or-special-rule-for-data-centers">3.4 This is not a new or special rule for data centers<a class="pl" href="#3-4-this-is-not-a-new-or-special-rule-for-data-centers" aria-label="Link to this section">&#182;</a></h3>
+
+<p>It is the same standard applied to the same kind of question. A directive entered at <span class="jn">J-11</span><span class="jt">audit directive</span> ordering an audit orders a verification, and an audit ordered by a government falls within the same scope that makes verification of compliance a matter of independent judgment throughout utility and building regulation. Where the self-reporting method has already failed on the record at <span class="jn">J-10</span><span class="jt">usage-reporting requirement</span>, the reason it cannot be relied upon is the reason the law at <span class="jn">J-22</span><span class="jt">verifier independence standard</span> already gives &mdash; a party cannot supply the independent judgment required to verify its own compliance.</p>
+
+<div class="box">
+<p><b>Terminology adopted throughout this standard.</b> This standard uses <b>qualified independent third party</b>, and never <b>certified third party</b>. The distinction is deliberate and material: there is at present no certification, license, or registry specific to computational-load and evaporative-consumption measurement in any jurisdiction, and a rule that required one would be unenforceable on the day it was adopted.</p>
+<p><b>Qualified</b> is a substantive test the adopting authority or the receiving authority applies to a given party against the criteria in subsection (g) &mdash; facilities, personnel, experience, demonstrated reliability, independence of judgment, and the absence of a design or financial relationship with the measured entity. It is satisfiable today, by licensed professional engineers, testing and metering firms, and independent inspection agencies already operating in every jurisdiction to which this standard may be submitted.</p>
+</div>
+<h2 class="pb" id="part-iv-the-classification-framework-engineering-basis">Part IV &mdash; The Classification Framework: Engineering Basis<a class="pl" href="#part-iv-the-classification-framework-engineering-basis" aria-label="Link to this section">&#182;</a></h2>
+
+<p>Measurement without classification is not uniform. Two facilities drawing the same annual kilowatt-hours can impose radically different physical strain on grid and water infrastructure depending on the shape of the load and the method used to reject its heat. Part IV establishes the two axes against which any facility is read, and it does so entirely from published, vendor-neutral figures so that the framework can be applied by any reviewer without access to proprietary data. The classification stated in this Part is adopted as operative rule text at proposed subsections (d) and (e).</p>
+
+<p class="note">Nothing in Part IV is a jurisdictional entry. Every density, temperature, ratio, identity, and limit stated here holds in every jurisdiction, because each is a property of hardware, of air, or of water.</p>
+
+<h3 id="iv-a-hardware-sourcing-and-device-level-reference-draw">IV.A Hardware Sourcing and Device-Level Reference Draw<a class="pl" href="#iv-a-hardware-sourcing-and-device-level-reference-draw" aria-label="Link to this section">&#182;</a></h3>
+
+<p>To establish a neutral, non-arbitrary baseline for classification, the standard relies entirely on published, vendor-neutral device thermal design power (TDP) specifications:</p>
+
+<div class="tw"><table>
+<tr><th style="width:33%">Device class</th><th style="width:25%">Published reference draw</th><th>Note</th></tr>
+<tr><td>Standard server CPU (dual-socket)</td><td>150&ndash;250 W per chip</td><td>Approximately 600&ndash;750 W per standard server unit including platform overhead</td></tr>
+<tr><td>Prior-generation AI GPU (A100 class)</td><td>~400 W per unit</td><td>Board power</td></tr>
+<tr><td>Current-generation AI GPU (H100 class)</td><td>~700 W per unit</td><td>Board power</td></tr>
+<tr><td>Next-generation AI GPU</td><td>1,200&ndash;1,400 W per unit</td><td>Projected roadmap TDP</td></tr>
+<tr><td>High-bandwidth memory (HBM) stack</td><td>10&ndash;15 W per stack</td><td>6&ndash;12 stacks per high-performance GPU</td></tr>
+<tr><td>Integrated 8-GPU server</td><td>~5.6 kW GPU-only; 6.5&ndash;7.5 kW per server</td><td>Expanded figure accounts for CPU, memory, and network overhead</td></tr>
+</table></div>
+
+<p>These are not the author's figures and are not offered as such. They are published manufacturer specifications, and the reference panel schedule at Exhibit 4 is populated from them so that any reviewer can reconstruct the panel independently. Under proposed subsection (k)(1), a published TDP is a legitimate input to a Designed or Modeled figure and is never, standing alone, a Measured one.</p>
+
+<h3 id="iv-b-density-classes-cooling-regimes-and-the-physical-air-cooling-limit">IV.B Density Classes, Cooling Regimes, and the Physical Air-Cooling Limit<a class="pl" href="#iv-b-density-classes-cooling-regimes-and-the-physical-air-cooling-limit" aria-label="Link to this section">&#182;</a></h3>
+
+<p>Using the device-level baselines above, five rack density classes map directly onto their engineering cooling requirements:</p>
+
+<div class="tw"><table>
+<tr><th style="width:30%">Facility / rack class</th><th style="width:18%">Rack density</th><th>Required cooling regime</th></tr>
+<tr><td>Traditional enterprise / storage / web</td><td>5&ndash;15 kW per rack</td><td>Conventional air cooling (CRAC / CRAH units)</td></tr>
+<tr><td>Mixed / general compute</td><td>15&ndash;30 kW per rack</td><td>Air cooling pushed to its thermal limit; containment and elevated airflow required</td></tr>
+<tr><td>AI inference</td><td>20&ndash;40 kW per rack</td><td>Transition zone: rear-door liquid heat exchangers or localized cold plates</td></tr>
+<tr><td>AI training</td><td>40&ndash;80 kW per rack</td><td>Direct liquid cooling (DLC) or cold plates required</td></tr>
+<tr><td>Next-generation AI</td><td>150+ kW per rack</td><td>Advanced DLC, cold plates, or full immersion cooling</td></tr>
+</table></div>
+
+<p><b>The air-cooling envelope, stated as the airflow it requires.</b> Air cooling is bounded not by a declared limit but by the volumetric airflow needed to carry the heat away at the available temperature difference. That quantity is computed exactly:</p>
+
+<div class="calc">CFM = Q [BTU/hr] / (K x dT)
+
+   K  = cp x 60 min/hr x rho(air)
+      = 0.240 x 60 x 0.075 = 1.080   at sea level
+   dT = temperature rise across the rack, degF
+   rho(air) is taken at the station pressure of Annex I.2, not at sea level</div>
+
+<p>The constant falls with air density, and therefore with elevation. Stated for a 30 kW rack at a 20 &deg;F rise: 4,739 CFM at sea level, 5,097 CFM at 2,000 ft, 5,696 CFM at 5,000 ft, 6,142 CFM at 7,000 ft. <b>An envelope stated without its station elevation is not reproducible.</b></p>
+
+<div class="tw"><table>
+<tr><th style="width:16%">Rack density</th><th>&Delta;T = 15 &deg;F</th><th>&Delta;T = 20 &deg;F</th><th>&Delta;T = 25 &deg;F</th><th>&Delta;T = 30 &deg;F</th></tr>
+<tr><td>10 kW</td><td class="r">2,106</td><td class="r">1,580</td><td class="r">1,264</td><td class="r">1,053</td></tr>
+<tr><td>15 kW</td><td class="r">3,159</td><td class="r">2,370</td><td class="r">1,896</td><td class="r">1,580</td></tr>
+<tr><td>20 kW</td><td class="r">4,213</td><td class="r">3,159</td><td class="r">2,528</td><td class="r">2,106</td></tr>
+<tr><td>25 kW</td><td class="r">5,266</td><td class="r">3,949</td><td class="r">3,159</td><td class="r">2,633</td></tr>
+<tr><td>30 kW</td><td class="r">6,319</td><td class="r">4,739</td><td class="r">3,791</td><td class="r">3,159</td></tr>
+<tr><td>40 kW</td><td class="r">8,425</td><td class="r">6,319</td><td class="r">5,055</td><td class="r">4,213</td></tr>
+<tr><td>50 kW</td><td class="r">10,531</td><td class="r">7,898</td><td class="r">6,319</td><td class="r">5,266</td></tr>
+<tr><td>80 kW</td><td class="r">16,850</td><td class="r">12,638</td><td class="r">10,110</td><td class="r">8,425</td></tr>
+<tr><td colspan="5" class="note" style="background:#f6f6f6">CFM per rack at sea level. Divide by the density ratio at the station elevation for any other site.</td></tr>
+</table></div>
+
+<p>Against that, the delivery side: a 42U cabinet with a fully perforated door served by one 24-inch floor tile delivers on the order of 2,000 to 3,000 CFM, and a contained hot aisle with high-flow tiles or fan-assisted tiles reaches roughly 4,000 to 6,000 CFM. <b>The band in which air cooling becomes impractical is therefore approximately 25 to 30 kW per rack at ordinary temperature rises, and the band is a consequence of the arithmetic above rather than a stated rule.</b></p>
+
+<p>The consequence for classification is stated as a reproducible test rather than as a threshold: a filing claiming a purely air-cooled configuration shall state its rack density, its temperature rise, its station elevation, and the airflow it delivers per rack, and the airflow stated shall be not less than the airflow the relation above requires at those conditions. A filing that cannot satisfy that inequality on its own stated figures is deficient under proposed subsection (k)(1)(C). The test puts the burden on arithmetic the reviewer can repeat, and it does not depend on any assertion about what is physically impossible.</p>
+
+<h3 id="iv-c-the-deterministic-heat-and-water-chain">IV.C The Deterministic Heat-and-Water Chain<a class="pl" href="#iv-c-the-deterministic-heat-and-water-chain" aria-label="Link to this section">&#182;</a></h3>
+
+<p>Data-center energy use is not an abstract metric. It is a physical event connected to local grid and water infrastructure through a deterministic three-link chain. Each link is an identity or a bounded engineering ratio, not an assumption, and each is derived with worked arithmetic in Annex I.</p>
+
+<h4 id="iv-c-1-link-one-electrical-draw-to-heat">IV.C.1 Link one &mdash; electrical draw to heat<a class="pl" href="#iv-c-1-link-one-electrical-draw-to-heat" aria-label="Link to this section">&#182;</a></h4>
+
+<p>Computational silicon performs no mechanical work and stores no significant energy. Essentially all electrical power delivered to it is converted to heat:</p>
+
+<div class="calc">Q [BTU/hr] = P [W] x 3.412142      equivalently   Q [BTU/hr] = P [MW] x 3,412,142</div>
+
+<p>This is a unit identity, not a model. A 150 kW rack rejects 511,821 BTU/hr &mdash; approximately 42.7 tons of refrigeration at the 12,000 BTU/hr refrigeration ton, or the continuous output of roughly five to six typical residential furnaces rated at 80,000&ndash;100,000 BTU/hr input.</p>
+
+<h4 id="iv-c-2-link-two-heat-to-cooling-energy">IV.C.2 Link two &mdash; heat to cooling energy<a class="pl" href="#iv-c-2-link-two-heat-to-cooling-energy" aria-label="Link to this section">&#182;</a></h4>
+
+<p>Removing that thermal energy requires cooling power. In high-density operations, cooling and facility overhead account for approximately 30&ndash;40 percent of total facility electricity; air cooling demands roughly an additional 0.3&ndash;0.5 W of cooling power for every 1 W of active IT load. Expressed as power usage effectiveness:</p>
+
+<div class="calc">P_total facility = P_IT x PUE
+
+   where PUE = 1.15-1.25 (dry, mild)  to  1.50-1.70+ (extreme ambient)</div>
+
+<p>The reported electrical figure must therefore be the gross facility figure. Reporting critical IT load alone understates the physical draw on the grid by the entire cooling and infrastructure fraction &mdash; which is to say, by exactly the fraction that grows during the summer hours when the grid is most constrained.</p>
+
+<h4 id="iv-c-3-link-three-cooling-to-water-consumption">IV.C.3 Link three &mdash; cooling to water consumption<a class="pl" href="#iv-c-3-link-three-cooling-to-water-consumption" aria-label="Link to this section">&#182;</a></h4>
+
+<p>Where heat is rejected evaporatively, water is consumed by phase change. The consumed mass follows from the latent heat of vaporization:</p>
+
+<div class="calc">m_water [lb/hr]  = Q [BTU/hr] / h_fg
+V_water [gal/hr] = m_water / 8.34</div>
+
+<p>At <span class="m">h_fg</span> &asymp; 1,050 BTU/lb (typical of tower operating temperatures):</p>
+
+<div class="calc">1 MW of heat rejected evaporatively
+   = 3,412,142 / 1,050 / 8.34
+   = 389.6 gal/hr  =  9,352 gal/MW-day</div>
+
+<p>Two independent methods agree on this figure. The latent-heat derivation above gives approximately 390 gal/hr per MW. The cooling-tower rule of thumb &mdash; evaporation of approximately one percent of recirculating flow per 10 &deg;F of range &mdash; gives 409 gal/hr per MW. The consumptive evaporation rate for a fully evaporative facility is therefore approximately <b>390&ndash;410 gal/hr per MW</b> of heat rejected, and this standard uses 390 gal/hr per MW as the working value.</p>
+
+<p>Evaporation is not the whole of the water draw. Total makeup water fed to an evaporative circuit is the sum of evaporation, drift, and blowdown:</p>
+
+<div class="calc">Water balance    M = E + D + B
+Solids balance   M x c_m = (D + B) x c_c      COC = c_c / c_m
+
+   E leaves as pure vapour and carries no dissolved solids.
+   D leaves as entrained droplets at the circulating concentration,
+   so drift substitutes for blowdown in the solids balance.
+
+Solving:   M = (D + B) x COC
+           E + D + B = (D + B)(COC)
+           D + B = E / (COC - 1)
+           B     = E / (COC - 1) - D
+           M     = E + E / (COC - 1) = E x COC / (COC - 1)
+
+Consumptive loss = M - B = E + D</div>
+
+<p>Two consequences follow, and both are stated because a single meter on the makeup line cannot distinguish them. <b>Makeup does not depend on drift</b> &mdash; drift displaces an equal volume of blowdown in the solids balance, so the makeup relation is exact as written. <b>Blowdown does depend on drift</b>, and is smaller than evaporation divided by cycles minus one by exactly the drift volume.</p>
+
+<div class="tw"><table>
+<tr><th>Cycles of concentration (COC)</th><th>Evaporation E (gal/hr per MW)</th><th>Drift D at 10 &deg;F range</th><th>Blowdown B = E/(COC&minus;1) &minus; D</th><th>Makeup M = E&times;COC/(COC&minus;1)</th><th>Makeup (gal/MW-day)</th><th>Consumptive E + D</th></tr>
+<tr><td>3 cycles</td><td class="r">389.6</td><td class="r">2.05</td><td class="r">192.8</td><td class="r">584.5</td><td class="r">14,027</td><td class="r">391.7</td></tr>
+<tr><td>4 cycles</td><td class="r">389.6</td><td class="r">2.05</td><td class="r">127.8</td><td class="r">519.5</td><td class="r">12,469</td><td class="r">391.7</td></tr>
+<tr><td>5 cycles</td><td class="r">389.6</td><td class="r">2.05</td><td class="r">95.4</td><td class="r">487.1</td><td class="r">11,689</td><td class="r">391.7</td></tr>
+<tr><td>6 cycles</td><td class="r">389.6</td><td class="r">2.05</td><td class="r">75.9</td><td class="r">467.6</td><td class="r">11,222</td><td class="r">391.7</td></tr>
+<tr><td>8 cycles</td><td class="r">389.6</td><td class="r">2.05</td><td class="r">53.6</td><td class="r">445.3</td><td class="r">10,687</td><td class="r">391.7</td></tr>
+<tr><td colspan="7" class="note" style="background:#f6f6f6">Consumptive loss is constant across every value of cycles; makeup spans 31 percent between 3 cycles and 8. One meter on the makeup line cannot distinguish a change in water chemistry from a change in water consumed.</td></tr>
+</table></div>
+
+<p>Drift from a modern tower with drift eliminators is bounded at roughly 0.005 percent of recirculating flow. It is small in volume but it is not negligible in kind: drift is consumptive loss to atmosphere and, unlike blowdown, does not return to the collection system. <b>Drift is a fraction of recirculation, and recirculation varies inversely with the temperature range, so drift per megawatt is not a constant and shall be stated with the range at which it was determined:</b></p>
+
+<div class="tw"><table>
+<tr><th style="width:18%">Range &Delta;T</th><th>Recirculation (GPM per MW)</th><th>Recirculation (gal/hr per MW)</th><th>Drift at 0.005% (gal/hr per MW)</th><th>Drift as a fraction of evaporation</th></tr>
+<tr><td>8 &deg;F</td><td class="r">853.0</td><td class="r">51,182</td><td class="r">2.56</td><td class="r">0.66%</td></tr>
+<tr><td>10 &deg;F</td><td class="r">682.4</td><td class="r">40,946</td><td class="r">2.05</td><td class="r">0.53%</td></tr>
+<tr><td>15 &deg;F</td><td class="r">455.0</td><td class="r">27,297</td><td class="r">1.36</td><td class="r">0.35%</td></tr>
+<tr><td>20 &deg;F</td><td class="r">341.2</td><td class="r">20,473</td><td class="r">1.02</td><td class="r">0.26%</td></tr>
+</table></div>
+
+<p>At a 10 &deg;F range, consumptive loss is therefore <b>391.7 gal/hr per MW</b> &mdash; evaporation of 389.6 plus drift of 2.05 &mdash; and blowdown is smaller than the uncorrected figure by the same 2.05 at every value of cycles.</p>
+
+<div class="box">
+<p><b>Why this distinction governs the rule text.</b> Blowdown is discharged to the sanitary sewer &mdash; it is withdrawn but not consumed, and it reappears downstream as a high-salinity load on the wastewater plant. Evaporation and drift are consumed to atmosphere and do not reappear anywhere. <b>A single intake figure at the property line cannot distinguish the two</b>, which is precisely why proposed subsection (f) requires a secondary meter on the evaporative feed rather than a larger primary meter at the fence.</p>
+</div>
+
+<h4 id="iv-c-4-worked-illustration-at-facility-scale">IV.C.4 Worked illustration at facility scale<a class="pl" href="#iv-c-4-worked-illustration-at-facility-scale" aria-label="Link to this section">&#182;</a></h4>
+
+<p>A facility with 100 MW of IT load operating at a PUE of 1.4 draws 140 MW gross and rejects approximately 478 million BTU/hr. If that heat is rejected entirely evaporatively, consumptive evaporation is approximately <b>1.31 million gallons per day</b>, before blowdown. At four cycles of concentration, total makeup is approximately <b>1.75 MGD</b>.</p>
+
+<p>A single 150 kW rack, by the same arithmetic, rejects 511,821 BTU/hr and evaporates 1,403 gallons per day, with drift of 7 gallons per day at a 10 &deg;F range, for a consumptive loss of <b>1,410 gallons per day</b>. Makeup across the full band of cycles stated in the table above is:</p>
+
+<div class="calc">COC 8 : 1,603 gal/day        COC 5 : 1,753 gal/day
+COC 6 : 1,683 gal/day        COC 4 : 1,870 gal/day
+                             COC 3 : 2,104 gal/day</div>
+
+<p>so the makeup band for a single 150 kW rack is <b>1,600 to 2,100 gallons per day</b>, the endpoints being 8 cycles and 3 cycles respectively.</p>
+
+<p>Stated against residential demand, which requires the per-household figure to be stated or the comparison cannot be checked: at <b>205 gallons per household per day</b> that band is 7.8 to 10.3 households. At 250 gallons it is 6.4 to 8.4 households, and at 300 gallons it is 5.3 to 7.0. <b>A comparison of this kind is reproducible only when the divisor is named</b>, and it is offered to let a reader without thermal training check an order of magnitude, not as a finding about any water system.</p>
+
+<p class="note">These illustrations are stated as Modeled figures under proposed subsection (k)(1), derived from published ratios and stated formulas. They are not a substitute for a measured reading at any specific facility. They establish the order of magnitude that makes measurement necessary; they do not establish any particular facility's draw, and are not offered for that purpose.</p>
+
+<h3 class="pb" id="iv-d-axis-1-workload-profile-classification-classes-w-1-w-2-w-3">IV.D Axis 1 &mdash; Workload Profile Classification (Classes W-1, W-2, W-3)<a class="pl" href="#iv-d-axis-1-workload-profile-classification-classes-w-1-w-2-w-3" aria-label="Link to this section">&#182;</a></h3>
+
+<p>Axis 1 classifies a facility, or a circuit within a facility, by the shape of its electrical load over time. Shape is the property that determines how much capacity a utility must hold in reserve, and it is the property that a time-averaged reading destroys.</p>
+
+<h4 id="class-w-1-continuous-high-utilization-ai-training-hpc">Class W-1 &mdash; Continuous High-Utilization (AI Training / HPC)<a class="pl" href="#class-w-1-continuous-high-utilization-ai-training-hpc" aria-label="Link to this section">&#182;</a></h4>
+
+<p>Class W-1 defines computational workloads characterized by a high, flat, and uninterrupted electrical load shape. It represents the most energy-dense and thermally intense operational class in modern data-center infrastructure.</p>
+
+<p><b>1. Electrical load shape and utilization.</b> Class W-1 workloads run for long, continuous execution intervals, frequently measured in days or weeks. Unlike variable cloud or web traffic, the load shape does not fluctuate: the peak demand and the mean demand over the interval are virtually identical. Stated as the measured quantity that defines the class, the <b>load factor &mdash; mean demand divided by peak demand over the full reporting period, at one-minute integration &mdash; is 0.95 or greater</b>. Utilization against a device&rsquo;s published thermal design power is not the test, because a published device rating is not a measured facility load; the test is computed entirely from readings taken at the transport boundary.</p>
+
+<p><b>2. Hardware and power density.</b> Class W-1 is typical of AI model-training superclusters &mdash; integrated 8-GPU nodes such as H100, H200, or B200 class systems &mdash; and of continuous high-performance computing. Rack power densities range from 40 to 80+ kW per rack, extending to 150+ kW per rack in next-generation architectures. An integrated 8-GPU server node alone draws 6.5 to 7.5 kW.</p>
+
+<p><b>3. Thermal and water footprint.</b> Because computational silicon converts essentially all electrical input into heat, Class W-1 facilities produce continuous heat rejection at their peak rate. Beyond the 25&ndash;30 kW per rack threshold, air cooling fails, making direct liquid cooling or cold plates physically mandatory. When paired with evaporative cooling towers, this continuous thermal output drives sustained, maximum municipal water consumption &mdash; on the order of 390 gal/hr per MW of rejected heat, continuously, for the duration of the run (Annex I).</p>
+
+<p><b>4. Measurement and regulatory rule.</b> Because peak and average draw are nearly identical, Class W-1 loads cannot be concealed behind time-averaging &mdash; but neither can they be understated by it. Class W-1 circuits must be metered at the secondary distribution bus or PDU level (the M2 transport boundary) using revenue-grade current-transformer submeters compliant with ANSI C12.20 accuracy Class 0.1, 0.2 or 0.5, or IEC 62053-22 accuracy class 0.1S, 0.2S or 0.5S, together with open server telemetry, so that continuous grid and thermal strain is accurately attributed to the circuits producing it.</p>
+
+<div class="box">
+<p><b>Why W-1 is the reference class for water.</b> A continuous class has no diversity. There is no hour of the day in which a training cluster's heat rejection falls off, and therefore no hour in which its evaporative makeup demand falls off. Utility planning practice that assumes a load factor materially below unity is inapplicable to Class W-1, and a water study that applies one to a W-1 facility understates the demand by the inverse of the assumed factor.</p>
+</div>
+
+<h4 id="class-w-2-burst-variable-ai-inference-cloud-and-colocation">Class W-2 &mdash; Burst / Variable (AI Inference, Cloud, and Colocation)<a class="pl" href="#class-w-2-burst-variable-ai-inference-cloud-and-colocation" aria-label="Link to this section">&#182;</a></h4>
+
+<p>Class W-2 defines computational workloads whose power draw rises and falls dynamically with real-time user query volume and transactional demand. Unlike flat, continuous training runs, Class W-2 represents a highly non-uniform, bursty load profile that presents distinct challenges for grid and municipal water infrastructure.</p>
+
+<p><b>1. Electrical load shape and utilization dynamics.</b></p>
+<ul>
+<li><b>Demand-driven swings.</b> Measured demand swings rapidly, commonly across a range of roughly 40 percent to 100 percent of the circuit&rsquo;s own measured peak, following real-time API query traffic, model inference requests, or cloud application spikes. The class is defined by a <b>load factor below 0.95</b> over the full reporting period, which is the complement of the Class W-1 test and requires no reference to a device rating.</li>
+<li><b>Peak-versus-average disparity.</b> The instantaneous peak electrical draw exceeds the long-term mean, and the ratio of the two is the load factor that classifies the circuit. Because queries cluster during business hours and active usage windows, Class W-2 creates steep, high-amplitude power ramps against a lower nighttime baseline.</li>
+</ul>
+
+<p><b>2. Hardware architecture and rack density.</b> Deployed across high-density GPU inference nodes, specialized ASIC accelerators, and multi-tenant cloud application servers, operating primarily in the 20 to 40 kW per rack bracket. This is the physical transition zone where conventional air cooling reaches its thermodynamic limit (25&ndash;30 kW per rack), requiring rear-door liquid heat exchangers or localized cold plates to handle rapid thermal spike

@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use this standard, please cite it as below."
+title: "GRUS-STD-60084 v2.0-U: Measurement and Reporting of Resource Consumption by Large Computational Loads (Uniform Edition)"
+authors:
+  - family-names: Cordova
+    given-names: Nicholas Wray
+    affiliation: "Green Recursive Utility Service LLC"
+    email: management@greenrecursiveutilityservice.org
+doi: 10.5281/zenodo.23246001
+url: "https://doi.org/10.5281/zenodo.23246001"
+repository-code: "https://github.com/geenrecursive/GRUS-STD-60084-v2.0-U"
+license: CC0-1.0
+version: "2.0-U"
+date-released: 2026-10-08
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23246001
+    description: "Uniform Edition — version of record (Zenodo)"
+  - type: doi
+    value: 10.5281/zenodo.23072905
+    description: "Texas Edition, GRUS-STD-60084 v2.0 rev. 1 (Zenodo)"
+  - type: url
+    value: "https://greenrecursiveutilityservice.org"
+    description: "Publisher — Green Recursive Utility Service LLC"
+keywords:
+  - data centers
+  - measurement standard
+  - water consumption
+  - energy reporting
+  - large computational loads
+  - AI infrastructure
+abstract: >-
+  GRUS-STD-60084 v2.0-U is a jurisdiction-neutral measurement
+  standard specifying how resource consumption by large
+  computational loads is measured and reported from the filed
+  record: a two-axis facility classification (workload shape
+  W-1/W-2/W-3; cooling type C-1 through C-5), boundary water
+  quantities derived from first principles, five evidence grades,
+  and a ten-step reproducible measurement protocol. Published
+  free for adoption by any jurisdiction. Texas edition of record:
+  Public Utility Commission of Texas Project No. 58317, Item 96.
+  Also filed: Ohio PUCO Case No. 24-0508-EL-ATA; Arizona
+  Corporation Commission Docket No. E-01773A-26-0123.
